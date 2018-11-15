@@ -1,11 +1,6 @@
 #include "calculator.h"
 
-int Calculator::Add (int a, int b)
+int Calculator::Add (double a, double b)
 {
     return a + b;
-}
-
-int Calculator::Sub (int a, int b)
-{
-    return Add (a, -b);
 }
