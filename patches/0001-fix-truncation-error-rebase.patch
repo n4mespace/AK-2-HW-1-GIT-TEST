@@ -1,0 +1,30 @@
+From 321a6094f4cebe8d287b7f829310df6a5904822e Mon Sep 17 00:00:00 2001
+From: Sergii Piatakov <sergii.piatakov@globallogic.com>
+Date: Thu, 15 Nov 2018 15:28:04 +0200
+Subject: [PATCH] fix truncation error (rebase)
+
+To convert float to integer the truncation is performed, but the
+rounding is expected.
+
+Test: Add (4.9, 4.9) should return 10.
+Signed-off-by: Sergii Piatakov <sergii.piatakov@globallogic.com>
+---
+ calculator.cpp | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/calculator.cpp b/calculator.cpp
+index b91afea..764f57b 100644
+--- a/calculator.cpp
++++ b/calculator.cpp
+@@ -4,8 +4,3 @@ int Calculator::Add (double a, double b)
+ {
+     return a + b;
+ }
+-
+-int Calculator::Sub (double a, double b)
+-{
+-    return Add (a, -b);
+-}
+-- 
+2.25.1
+
